@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MLX90615 &mdash; Melexis MLX90615 0.3.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/viper.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Melexis MLX90615 0.3.0 documentation" href="index.html"/>
+        <link rel="prev" title="Melexis MLX90615" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Melexis MLX90615</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">MLX90615</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mlx90615-class">MLX90615 class</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Melexis MLX90615</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>MLX90615</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/mlx90615.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <span class="target" id="module-mlx90615"></span><div class="section" id="mlx90615">
+<h1>MLX90615<a class="headerlink" href="#mlx90615" title="Permalink to this headline">¶</a></h1>
+<p>The MLX90615 is an Infra Red thermometer for non
+contact temperature measurements from Melexis (<a class="reference external" href="http://www.melexis.com/Infrared-Thermometer-Sensors/Infrared-Thermometer-Sensors/MLX90615-685.aspx">http://www.melexis.com/Infrared-Thermometer-Sensors/Infrared-Thermometer-Sensors/MLX90615-685.aspx</a>)</p>
+<p>The default communication protocol is I2C.</p>
+<p>To use this module create a MLX90615 instance by passing the I2C peripheral name to which it is connected to.</p>
+<p>Using the module is simple:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">melexis.mlx90615</span> <span class="kn">import</span> <span class="n">mlx90615</span>
+<span class="kn">import</span> <span class="nn">streams</span>
+
+<span class="n">streams</span><span class="o">.</span><span class="n">serial</span><span class="p">()</span>
+
+<span class="n">mlx</span> <span class="o">=</span> <span class="n">mlx90615</span><span class="o">.</span><span class="n">MLX90615</span><span class="p">(</span><span class="n">I2C0</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Temperature:&quot;</span><span class="p">,</span><span class="n">mlx</span><span class="o">.</span><span class="n">temperature</span><span class="p">())</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="mlx90615-class">
+<h2>MLX90615 class<a class="headerlink" href="#mlx90615-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mlx90615.MLX90615">
+<em class="property">class </em><code class="descname">MLX90615</code><span class="sig-paren">(</span><em>drvname</em>, <em>clock=100000</em><span class="sig-paren">)</span><a class="headerlink" href="#mlx90615.MLX90615" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a MLX90615 instance using the MCU I2C circuitry <em>drvname</em> (one of I2C0, I2C1, ... check pinmap for details).
+The created instance is configured and ready to communicate.
+<em>clock</em> is configured by default in slow mode.</p>
+<p>MLX90615 inherits from i2c.I2C, therefore the method start() must be called to setup the I2C channel
+before any temperature can be read.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mlx90615.temperature">
+<code class="descname">temperature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mlx90615.temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the object temperature in Celsius. The object temperature is the temperature of the object the mlx90615 is pointing towards.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mlx90615.ambient">
+<code class="descname">ambient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mlx90615.ambient" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the ambient temperature in Celsius. The ambient temperature is the temperature inside the MLX90615 package.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mlx90615.raw">
+<code class="descname">raw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mlx90615.raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the raw infrared readings (signed, 16 bits).</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Melexis MLX90615"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Viper Team.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

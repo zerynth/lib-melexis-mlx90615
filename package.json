@@ -1,0 +1,10 @@
+{
+        "author": "dev@viperize.it",
+        "description": "Melexis MLX90615",
+        "name": "MLX90615",
+        "fullname":"lib.melexis.mlx90615",
+        "dependencies":{
+        }
+}
+
+

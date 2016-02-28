@@ -24,7 +24,7 @@
 
   
   
-    <link rel="stylesheet" href="_static/viper.css" type="text/css" />
+    <link rel="stylesheet" href="_static/zerynth.css" type="text/css" />
   
 
   
@@ -133,7 +133,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Viper Team.
+        &copy; Copyright Zerynth Team.
     </p>
   </div>
 
@@ -179,7 +179,18 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-   
+  
+ <script type="text/javascript">
+ var vurl
+ if(location.href.indexOf("127.0.0.1")>=0) vurl=location.protocol+"//"+location.host+"/docs"
+ else vurl="http://doc.zerynth.com"
+ $(document).ready(function(){
+                   $('.wy-breadcrumbs a:contains("Docs")').before('<a href="'+vurl+'">Zerynth</a> &#187;')
+                   $('.wy-side-nav-search > a').removeClass("fa-home").removeClass("fa")
+                   $('.wy-side-nav-search').prepend('<div class="viper-circle"><a href="'+vurl+'"><span style="color:#1c5e60" class="zerynth-Logo2"></span></a></div>')
+ })
+ </script>
+
 
 </body>
 </html>

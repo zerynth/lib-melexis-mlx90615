@@ -1,12 +1,11 @@
 """
 .. module:: mlx90615
 
-********
-MLX90615
-********
+***************
+MLX90615 Module
+***************
 
-The MLX90615 is an Infra Red thermometer for non
-contact temperature measurements from Melexis (http://www.melexis.com/Infrared-Thermometer-Sensors/Infrared-Thermometer-Sensors/MLX90615-685.aspx)
+This module implements Zerynth driver for the MLX90165 sensor (`datasheet <https://www.melexis.com/-/media/files/documents/datasheets/mlx90615-datasheet-melexis.pdf>`_)
 
 The default communication protocol is I2C.
 
@@ -55,7 +54,7 @@ MLX90615 class
         """
 .. method:: temperature()        
 
-        return the object temperature in Celsius. The object temperature is the temperature of the object the mlx90615 is pointing towards.
+        Returns the object temperature in Celsius. The object temperature is the temperature of the object the mlx90615 is pointing towards.
         
         """
         t0 = self.write_read(0x27,3)
@@ -65,7 +64,7 @@ MLX90615 class
         """
 .. method:: ambient()        
 
-        return the ambient temperature in Celsius. The ambient temperature is the temperature inside the MLX90615 package.
+        Returns the ambient temperature in Celsius. The ambient temperature is the temperature inside the MLX90615 package.
         
         """
         ta = self.write_read(0x26,3)
@@ -75,7 +74,7 @@ MLX90615 class
         """
 .. method:: raw()        
 
-        return the raw infrared readings (signed, 16 bits).
+        Returns the raw infrared readings (signed, 16 bits).
         
         """
         ta = self.write_read(0x25,3)

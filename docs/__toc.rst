@@ -4,5 +4,5 @@
     .. toctree::
        :maxdepth: 2
 
-       mlx90615
+       docs_mlx90615
 

@@ -1,8 +1,0 @@
-{
-	"version":"0.3.0",
-	"title":"Melexis MLX90615",
-	"copyright":"Zerynth Team",
-	"files":[
-		["MLX90615","mlx90615.py"]
-	]
-}

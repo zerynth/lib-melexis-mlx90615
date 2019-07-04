@@ -1,0 +1,13 @@
+---
+description: Driver for Melexis mlx90615 I2C temperature sensor
+fullname: lib.melexis.mlx90615
+info:
+    chip_manufacturer: Melexis
+    chip_name: MLX90615
+    name: Temperature Sensor
+    type: Sensor
+keywords:
+- temperature
+- melexis
+title: Melexis MLX90615 temperature sensor
+...
